@@ -14,6 +14,7 @@ galaxy_info:
   galaxy_tags:
   - DSpace
   - institutional-repository
+  - DuraSpace
 
 dependencies: []
   # List your role dependencies here, one per line. Be sure to remove the '[]' above,
