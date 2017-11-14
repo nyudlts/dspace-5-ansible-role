@@ -1,2 +1,16 @@
 ---
-# tasks file for dspace-5
+- name: add dspace user group
+  group:
+    name:     "{{ dspace_group }}"
+    gid:      "{{ dspace_group_gid | default(omit) }}"
+    state: present
+  become: true
+
+- name: add dspace user
+  user:
+    name:     "{{ dspace_user }}"
+    shell:    "/bin/bash"
+    uid:      "{{ dspace_user_uid  | default(omit) }}"
+    group:    "{{ dspace_group }}"
+    comment:  "{{ dspace_user }} system account"
+  become: true
