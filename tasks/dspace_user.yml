@@ -13,3 +13,12 @@
     group:    "{{ dspace_group }}"
     comment:  "{{ dspace_user }} system account"
 
+- name: add pgpass entry for dspace database
+  include: tasks/pgpass.yml
+  vars:
+    admin_user: "{{ dspace_user }}"
+    admin_group: "{{ dspace_group }}"
+    database: "{{ dspace_db_name }}"
+    user: "{{ dspace_db_user }}"
+    password: "{{ dspace_db_pass }}"
+    state: "present"
