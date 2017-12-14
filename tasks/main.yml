@@ -12,3 +12,6 @@
   become_user: "{{ dspace_user }}"
 - include: install_dspace.yml
   tags: ['install']
+- include: deploy_dspace.yml
+  tags: ['deploy']
+  become: true

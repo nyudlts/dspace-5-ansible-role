@@ -5,3 +5,10 @@
     state: stopped
   become: true
 
+- name: restart tomcat
+  systemd:
+    name: tomcat
+    daemon_reload: yes
+    enabled: yes
+    state: restarted
+  become: true

@@ -55,6 +55,28 @@ branch: "dspace-{{ dspace_version }}"
 release_dir: "{{ dspace_source_dir }}-src-release" # appended to dspace_source_dir, if needed
 release: "https://github.com/DSpace/DSpace/releases/download/dspace-{{ dspace_version }}/{{ release_dir }}.tar.gz"
 
+# deployment vars
+# ---------------
+dspace_context_template:  "context.xml.j2"
+catalina_home: "/usr/local/tomcat"
+dspace_webapps:
+  - name: "xmlui"
+    default_webapp: true
+  - name: "solr"
+    address_restriction: true
+  - name: "oai"
+  - name: "rdf"
+  - name: "rest"
+    address_restriction: true
+  - name: "sword"
+  - name: "swordv2"
+# TODO: remember to set otherwise for production
+dspace_context_reloadable: true
+dspace_context_caching_allowed: false
+# TODO: make dynamic/adapt for dev
+dspace_restricted_ip_range: "10.0.0.0/8"
+production: false # TODO: use or lose
+
 # vars for prereqs:
 # -----------------
 base_install_dir: "/usr/local"
