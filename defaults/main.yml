@@ -1,5 +1,7 @@
 ---
+# user vars
 dspace_user:      "{{ app_user      | default('dspace') }}"
 dspace_group:     "{{ app_group     | default(dspace_user) }}"
 dspace_user_uid:  "{{ app_user_uid  | default(omit) }}"
 dspace_group_gid: "{{ app_group_gid | default(omit) }}"
+
