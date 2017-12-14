@@ -1,7 +1,51 @@
 ---
+# configuration vars
+dspace_hostname:    "dspace"
+dspace_domain:      "test"
+dspace_fqdn:        "{{ dspace_hostname }}.{{ dspace_domain }}"
+dspace_name:        "DSpace {{ dspace_version }}"
+
+# database vars
+dspace_db_name:       "dspace"
+dspace_db_user:       "dspace"
+dspace_db_pass:       "{{ db_password | default('CHANGEME') }}"
+# dspace_db_hostname:   "dspace-db"
+# dspace_db_fqdn:       "{{ dspace_db_hostname }}.{{ dspace_domain }}"
+dspace_db_fqdn:       "localhost"
+dspace_db_port:       "5432"
+dspace_db_url:        "jdbc:postgresql://{{ dspace_db_fqdn }}:{{ dspace_db_port }}/{{ dspace_db_name }}"
+dspace_pgdata:        "/var/lib/pgsql/data/"
+dspace_postgres_user: "postgres"
+pgbin: ""
+
+# mail vars
+dspace_mail_server: "smtp.{{ dspace_fqdn }}"
+dspace_mail_admin:  "admin@{{ dspace_fqdn }}"
+
 # user vars
 dspace_user:      "{{ app_user      | default('dspace') }}"
 dspace_group:     "{{ app_group     | default(dspace_user) }}"
 dspace_user_uid:  "{{ app_user_uid  | default(omit) }}"
 dspace_group_gid: "{{ app_group_gid | default(omit) }}"
+
+# vars for building and installing dspace:
+# ---------------------------------
+dspace_major_version: 5
+dspace_minor_version: 8
+dspace_version:       "{{ dspace_major_version }}.{{ dspace_minor_version }}"
+dspace_install_dir:   "/opt"
+dspace_install:       "{{ dspace_install_dir }}/dspace"
+dspace_user_home:     "/home/{{ dspace_user }}"
+dspace_source_dir:    "dspace-{{ dspace_version }}"
+dspace_source:        "{{ dspace_user_home }}/{{ dspace_source_dir }}"
+# TODO: review, with an eye toward always building from release
+# and automating customizations (thus removing need for a repo)
+build_from_repo: false
+dspace_build_properties_template: "build.properties.j2"
+# to install from a repo: (you'd probably override this with your own fork)
+repo: "https://github.com/DSpace/DSpace.git"
+branch: "dspace-{{ dspace_version }}"
+# to install from a release:
+release_dir: "{{ dspace_source_dir }}-src-release" # appended to dspace_source_dir, if needed
+release: "https://github.com/DSpace/DSpace/releases/download/dspace-{{ dspace_version }}/{{ release_dir }}.tar.gz"
 

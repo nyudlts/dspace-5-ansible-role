@@ -3,3 +3,7 @@
   tags: ['user']
   become: true
   become: true
+- include: build_dspace.yml
+  tags: ['build']
+  become: true
+  become_user: "{{ dspace_user }}"
