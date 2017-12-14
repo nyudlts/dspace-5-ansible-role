@@ -22,6 +22,12 @@ pgbin: ""
 dspace_mail_server: "smtp.{{ dspace_fqdn }}"
 dspace_mail_admin:  "admin@{{ dspace_fqdn }}"
 
+# theme settings
+dspace_use_alt_theme: true
+dspace_theme_name: "Mirage 2"
+dspace_theme_path: "Mirage2"
+# dspace_full_theme_path: "{{ dspace_install }}/webapps/xmlui/themes/{{ dspace_theme_path }}"
+
 # user vars
 dspace_user:      "{{ app_user      | default('dspace') }}"
 dspace_group:     "{{ app_group     | default(dspace_user) }}"
@@ -48,4 +54,10 @@ branch: "dspace-{{ dspace_version }}"
 # to install from a release:
 release_dir: "{{ dspace_source_dir }}-src-release" # appended to dspace_source_dir, if needed
 release: "https://github.com/DSpace/DSpace/releases/download/dspace-{{ dspace_version }}/{{ release_dir }}.tar.gz"
+
+# vars for prereqs:
+# -----------------
+base_install_dir: "/usr/local"
+sass_version: "3.3.14"
+compass_version: "1.0.1"
 
