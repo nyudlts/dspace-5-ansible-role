@@ -10,3 +10,5 @@
   tags: ['build']
   become: true
   become_user: "{{ dspace_user }}"
+- include: install_dspace.yml
+  tags: ['install']

@@ -1,2 +1,7 @@
 ---
-# handlers file for dspace-5
+- name: stop tomcat
+  systemd:
+    name: tomcat
+    state: stopped
+  become: true
+
