@@ -15,3 +15,5 @@
 - include: deploy_dspace.yml
   tags: ['deploy']
   become: true
+- include: create_administrator.yml
+  tags: ['init']

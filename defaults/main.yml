@@ -83,3 +83,10 @@ base_install_dir: "/usr/local"
 sass_version: "3.3.14"
 compass_version: "1.0.1"
 
+# admins
+dspace_admins:
+- email:      "admin@{{ dspace_fqdn }}"
+  firstname:  "test"
+  lastname:   "admin"
+  language:   "English"
+  password:   "CHANGEME"
