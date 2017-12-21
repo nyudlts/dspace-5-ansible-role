@@ -1,7 +1,11 @@
 ---
 # TODO: confirm belief that tomcat must run to load dspace webapp at least once before creating administrator
 - name: start tomcat
-  service: name=tomcat state=started
+  command: "echo 'starting tomcat after installing dspace'"
+  changed_when: true
+  notify: start tomcat
+
+- meta: flush_handlers
 
 - name: create administrator
   shell: >

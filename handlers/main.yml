@@ -1,4 +1,10 @@
 ---
+- name: start tomcat
+  systemd:
+    name: tomcat
+    state: started
+  become: true
+
 - name: stop tomcat
   systemd:
     name: tomcat
