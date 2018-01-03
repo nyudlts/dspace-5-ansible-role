@@ -75,8 +75,8 @@ dspace_webapps:
 # TODO: remember to set otherwise for production
 dspace_context_reloadable: true
 dspace_context_caching_allowed: false
-# TODO: make dynamic/adapt for dev
-dspace_restricted_ip_range: "10.0.0.0/8"
+dspace_ip_whitelist:
+  - "{{ internal_ip_regex }}"
 production: false # TODO: use or lose
 
 # vars for prereqs:
