@@ -1,7 +1,7 @@
 ---
 # configuration vars
-dspace_hostname:    "dspace"
-dspace_domain:      "test"
+dspace_hostname:    "{{ hostname | default('dspace') }}"
+dspace_domain:      "{{ domainname | default('test') }}"
 dspace_fqdn:        "{{ dspace_hostname }}.{{ dspace_domain }}"
 dspace_name:        "DSpace {{ dspace_version }}"
 
