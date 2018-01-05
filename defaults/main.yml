@@ -1,9 +1,11 @@
 ---
 # configuration vars
-dspace_hostname:    "{{ hostname | default('dspace') }}"
-dspace_domain:      "{{ domainname | default('test') }}"
-dspace_fqdn:        "{{ dspace_hostname }}.{{ dspace_domain }}"
-dspace_name:        "DSpace {{ dspace_version }}"
+dspace_hostname:                "{{ hostname | default('dspace') }}"
+dspace_domain:                  "{{ domainname | default('test') }}"
+dspace_fqdn:                    "{{ dspace_hostname }}.{{ dspace_domain }}"
+dspace_name:                    "DSpace {{ dspace_version }}"
+dspace_handle_canonical_prefix: "{{ dspace_fqdn }}/handle/"
+dspace_handle_prefix:           123456789
 
 # database vars
 dspace_db_name:       "dspace"
