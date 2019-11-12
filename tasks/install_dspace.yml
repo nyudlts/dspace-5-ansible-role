@@ -6,6 +6,12 @@
 
 - meta: flush_handlers
 
+- name: Set password in dspace config
+  lineinfile:
+    path: /home/dspace/dspace-5.8/dspace/target/dspace-installer/config/dspace.cfg
+    regexp: '^db.password ='
+    line: 'db.password = {{ dspace_postgres_password }}'
+
 - name: install dspace
   become: true
   become_user: "{{ dspace_user }}"
