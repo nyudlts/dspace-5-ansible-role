@@ -82,6 +82,6 @@
 - name: maven package
   become: true
   become_user: "{{ dspace_user }}"
-  shell: "source /etc/profile && mvn clean package -Dmirage2.on=true -Dmirage2.deps.included=false"
+  shell: "source /etc/profile && mvn clean package"
   args:
     chdir: "{{ dspace_source }}"
